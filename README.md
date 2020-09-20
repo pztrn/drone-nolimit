@@ -19,3 +19,9 @@ Otherwise please use official Drone image from [Docker Hub](https://hub.docker.c
 ## Installation and usage
 
 This image can be used and configured according to [official Drone documentation](https://docs.drone.io/).
+
+The only thing is: use this line for image:
+
+```
+pztrn/drone-nolimit:VERSION
+```
