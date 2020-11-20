@@ -27,6 +27,8 @@ build-local-registry-latest:
   script:
     - docker build --pull -t $LOCAL_REGISTRY_IMAGE_LATEST .
     - docker push $LOCAL_REGISTRY_IMAGE_LATEST
+  only:
+    - master
 
 build-local-registry-version:
   stage: build
@@ -45,6 +47,8 @@ build-dockerhub-latest:
   script:
     - docker build --pull -t $DOCKERHUB_IMAGE_LATEST .
     - docker push $DOCKERHUB_IMAGE_LATEST
+  only:
+    - master
 
 build-dockerhub-version:
   stage: build
