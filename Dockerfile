@@ -1,6 +1,6 @@
-FROM golang:1.15.5-alpine as build
+FROM golang:1.17.3-alpine as build
 
-ENV DRONE_VERSION=1.9.2
+ENV DRONE_VERSION=2.5.0
 
 RUN apk add -U --no-cache ca-certificates git build-base
 RUN mkdir -p /src/drone && \
