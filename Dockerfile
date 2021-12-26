@@ -1,6 +1,6 @@
-FROM golang:1.17.3-alpine as build
+FROM golang:1.17.5-alpine as build
 
-ENV DRONE_VERSION=2.5.0
+ENV DRONE_VERSION=2.7.2
 
 RUN apk add -U --no-cache ca-certificates git build-base
 RUN mkdir -p /src/drone && \
@@ -9,7 +9,7 @@ RUN mkdir -p /src/drone && \
     git checkout -b v${DRONE_VERSION}
 RUN cd /src/drone/cmd/drone-server && go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o drone-server
 
-FROM alpine:3.11
+FROM alpine:3.14
 
 EXPOSE 80 443
 VOLUME /data
