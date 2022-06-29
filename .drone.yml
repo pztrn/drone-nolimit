@@ -5,11 +5,11 @@ name: build
 
 steps:
   - name: docker
-    image: plugins/docker
+    image: code.pztrn.name/containers/mirror/plugins/docker:20.13.0
     settings:
-      username:
-        from_secret: dockerhub_user
+      registry: code.pztrn.name
+      username: drone
       password:
-        from_secret: dockerhub_password
-      repo: pztrn/drone-nolimit
+        from_secret: drone_secret
+      repo: code.pztrn.name/containers/drone-nolimit
       auto_tag: true

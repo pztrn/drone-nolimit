@@ -1,4 +1,4 @@
-FROM golang:1.18.3-alpine as build
+FROM code.pztrn.name/containers/mirror/golang:1.18.3-alpine as build
 
 ENV DRONE_VERSION=2.12.0
 
@@ -9,7 +9,7 @@ RUN mkdir -p /src/drone && \
     git checkout -b v${DRONE_VERSION}
 RUN cd /src/drone/cmd/drone-server && go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o drone-server
 
-FROM alpine:3.15
+FROM code.pztrn.name/containers/mirror/alpine:3.16.0
 
 EXPOSE 80 443
 VOLUME /data
