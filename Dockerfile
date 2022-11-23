@@ -1,6 +1,6 @@
 FROM code.pztrn.name/containers/mirror/golang:1.18.3-alpine as build
 
-ENV DRONE_VERSION=2.12.1
+ENV DRONE_VERSION=2.15.0
 
 RUN apk add -U --no-cache ca-certificates git build-base
 RUN mkdir -p /src/drone && \
