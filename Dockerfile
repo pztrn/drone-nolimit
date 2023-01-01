@@ -1,6 +1,6 @@
 FROM code.pztrn.name/containers/mirror/golang:1.18.3-alpine as build
 
-ENV DRONE_VERSION=2.15.0
+ENV DRONE_VERSION=2.16.0
 
 RUN apk add -U --no-cache ca-certificates git build-base
 RUN mkdir -p /src/drone && \
@@ -9,7 +9,7 @@ RUN mkdir -p /src/drone && \
     git checkout -b v${DRONE_VERSION}
 RUN cd /src/drone/cmd/drone-server && go build -tags "nolimit" -ldflags "-extldflags \"-static\"" -o drone-server
 
-FROM code.pztrn.name/containers/mirror/alpine:3.16.0
+FROM code.pztrn.name/containers/mirror/alpine:3.16.1
 
 EXPOSE 80 443
 VOLUME /data
